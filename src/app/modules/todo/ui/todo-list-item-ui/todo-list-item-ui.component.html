@@ -5,8 +5,9 @@
     (click)="onToggle($event)"
   />
   <del *ngIf="todo.completed">
-    <span>{{ todo.name }}</span>
+    <span>{{ todo.name | complited }}</span>
   </del>
-  <span *ngIf="!todo.completed">{{ todo.name }}</span>
+  <span *ngIf="!todo.completed">{{ todo.name | pleasePipe }}</span>
 </label>
-<button (click)="onDelete()">Delete</button>
+<button [appHoverEffects]="'red'" (click)="onDelete()">Delete</button>
+<button [appHoverEffects]="'yellow'" (click)="onEdit()">Edit</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Todo } from '../../model/todo.model';
+import { TodoSyncStorageService } from '../../service/todo-sync-storage.service';
 import {
   TodoCreateAction,
   TodoDeleteAction,
@@ -19,23 +20,28 @@ import { todoListSelector } from '../../store/todo/todo.selectors';
 export class TodoWidgetComponent implements OnInit {
   todoList$: Observable<Todo[]> = this.store$.pipe(select(todoListSelector));
 
-  constructor(private store$: Store<TodoState>) {}
+  constructor(
+    private store$: Store<TodoState>,
+    private todoSyncStorageService: TodoSyncStorageService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todoSyncStorageService.init();
+  }
 
   onCreate(name: string): void {
-    this.store$.dispatch(new TodoCreateAction({ name, id: null }));
+    this.store$.dispatch(new TodoCreateAction({ name, id: null, state: null }));
   }
 
   onDelete(id: number): void {
-    this.store$.dispatch(new TodoDeleteAction({ name: null, id }));
+    this.store$.dispatch(new TodoDeleteAction({ name: null, id, state: null }));
   }
 
   onToggle(id: number): void {
-    this.store$.dispatch(new TodoToggleAction({ name: null, id }));
+    this.store$.dispatch(new TodoToggleAction({ name: null, id, state: null }));
   }
 
   onEdit({ id, name }): void {
-    this.store$.dispatch(new TodoEditAction({ id, name }));
+    this.store$.dispatch(new TodoEditAction({ id, name, state: null }));
   }
 }

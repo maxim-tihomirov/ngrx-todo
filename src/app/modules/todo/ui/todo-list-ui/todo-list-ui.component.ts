@@ -7,6 +7,8 @@ import { Todo } from '../../model/todo.model';
   styleUrls: ['./todo-list-ui.component.css'],
 })
 export class TodoListUiComponent implements OnInit {
+  editIds: number[] = [];
+
   @Input()
   todoList: Todo[] = [];
 
@@ -34,7 +36,12 @@ export class TodoListUiComponent implements OnInit {
     this.toggle.emit(id);
   }
 
-  onEdit(name: string, id: number) {
+  onEdit(name: string, id: number): void {
     this.edit.emit({ id, name });
+    this.editIds = this.editIds.filter((n) => n !== id);
+  }
+
+  onEditMode(id: number): void {
+    this.editIds.push(id);
   }
 }

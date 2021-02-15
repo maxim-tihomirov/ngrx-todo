@@ -66,6 +66,10 @@ export const todoReducer = (
           }
         }),
       };
+    case TodoActionsType.Load:
+      return {
+        ...action.payload.state,
+      };
     default:
       return state;
   }

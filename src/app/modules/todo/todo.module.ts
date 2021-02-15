@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { TodoListUiComponent } from './ui/todo-list-ui/todo-list-ui.component';
 import { TodoListItemUiComponent } from './ui/todo-list-item-ui/todo-list-item-ui.component';
 import { TodoListItemEditUiComponent } from './ui/todo-list-item-edit-ui/todo-list-item-edit-ui.component';
+import { HoverEffectsDirective } from './directives/hover-effects.directive';
+import { MyIfDirective } from './directives/my-if.directive';
+import { PleasePipePipe } from './pipes/please-pipe.pipe';
+import { ComplitedPipe } from './pipes/complited.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { TodoListItemEditUiComponent } from './ui/todo-list-item-edit-ui/todo-li
     TodoListUiComponent,
     TodoListItemUiComponent,
     TodoListItemEditUiComponent,
+    HoverEffectsDirective,
+    MyIfDirective,
+    PleasePipePipe,
+    ComplitedPipe,
   ],
   imports: [
     CommonModule,

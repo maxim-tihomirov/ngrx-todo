@@ -11,10 +11,13 @@ export class TodoListItemUiComponent implements OnInit {
   todo: Todo;
 
   @Output()
-  delete: EventEmitter<number> = new EventEmitter<number>();
+  delete: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
-  toggle: EventEmitter<number> = new EventEmitter<number>();
+  toggle: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output()
+  edit: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {}
 
@@ -27,5 +30,9 @@ export class TodoListItemUiComponent implements OnInit {
   onToggle(event): void {
     event.preventDefault();
     this.toggle.emit();
+  }
+
+  onEdit() {
+    this.edit.emit();
   }
 }
