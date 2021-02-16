@@ -13,8 +13,8 @@ import { TodoListItemUiComponent } from './ui/todo-list-item-ui/todo-list-item-u
 import { TodoListItemEditUiComponent } from './ui/todo-list-item-edit-ui/todo-list-item-edit-ui.component';
 import { HoverEffectsDirective } from './directives/hover-effects.directive';
 import { MyIfDirective } from './directives/my-if.directive';
-import { PleasePipePipe } from './pipes/please-pipe.pipe';
-import { ComplitedPipe } from './pipes/complited.pipe';
+import { PleasePipePipe } from './pipes/please-pipe/please-pipe.pipe';
+import { ComplitedPipe } from './pipes/completed/complited.pipe';
 
 @NgModule({
   declarations: [

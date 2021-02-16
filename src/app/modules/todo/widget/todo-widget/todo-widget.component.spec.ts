@@ -8,9 +8,8 @@ describe('TodoWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoWidgetComponent ]
-    })
-    .compileComponents();
+      declarations: [TodoWidgetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
